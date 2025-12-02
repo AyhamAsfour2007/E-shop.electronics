@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Phone Parts Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Phone Parts Store - Admin</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">View Store</a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-section">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h2>Product Management</h2>
+                <p>Add, edit, or remove products from your inventory</p>
+            </div>
+
+            <div class="admin-form">
+                <h3 id="form-title">Add New Product</h3>
+                <form id="product-form">
+                    <input type="hidden" id="product-id" value="">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" id="product-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-category">Category</label>
+                            <select id="product-category" class="form-control" required>
+                                <option value="">Select Category</option>
+                                <option value="phones">Used Phones</option>
+                                <option value="screens">Screens</option>
+                                <option value="cameras">Cameras</option>
+                                <option value="batteries">Batteries</option>
+                                <option value="resistors">Resistors</option>
+                                <option value="capacitors">Capacitors</option>
+                                <option value="coils">Coils</option>
+                                <option value="other">Other Parts</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-price">Price (₪)</label>
+                            <input type="number" id="product-price" class="form-control" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-image">Image URL</label>
+                            <input type="text" id="product-image" class="form-control"
+                                placeholder="https://example.com/image.jpg">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-description">Description</label>
+                        <textarea id="product-description" class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn-submit" id="submit-btn">Add Product</button>
+                        <button type="button" class="btn-submit" id="cancel-btn"
+                            style="display: none; background-color: #95a5a6;">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="products-list">
+                <h3>Current Products</h3>
+                <div id="products-container">
+                    <!-- Products will be loaded here via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025Phone Parts Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal" style="display: block;">
+        <div class="modal-content login-form">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
